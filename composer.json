@@ -1,0 +1,22 @@
+{
+    "name": "sunnnnn/yii2-helper",
+    "description": "helper functions for Yii2 ",
+    "keywords": ["yii", "helper"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sunnnnn",
+            "email": "mrsunnnnn@qq.com"
+        }
+    ],
+    "require": {
+    	"php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "sunnnnn\\helper\\": ""
+        }
+    }
+}
