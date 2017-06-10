@@ -227,6 +227,22 @@ class Helper{
 	}
 	
 	/**
+	 * 转换字符串编码
+	 * @date: 2017年6月9日 下午3:15:00
+	 * @author: sunnnnn [www.sunnnnn.com] [mrsunnnnn@qq.com]
+	 * @param unknown $str
+	 * @param string $code
+	 * @return string|unknown
+	 */
+	public function encode($str, $code = 'UTF-8'){
+	    $encode = mb_detect_encoding($str, ["ASCII",'UTF-8',"GB2312","GBK",'BIG5']);
+	    if($encode != $code){
+	        return mb_convert_encoding($str, 'UTF-8', $encode);
+	    }
+	    return $str;
+	}
+	
+	/**
 	 * 获取IP地址
 	* @date: 2017年6月9日 上午9:39:17
 	* @author: sunnnnn [www.sunnnnn.com] [mrsunnnnn@qq.com]
