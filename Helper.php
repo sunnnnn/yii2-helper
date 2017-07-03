@@ -237,7 +237,7 @@ class Helper{
 	public function encode($str, $code = 'UTF-8'){
 	    $encode = mb_detect_encoding($str, ["ASCII",'UTF-8',"GB2312","GBK",'BIG5']);
 	    if($encode != $code){
-	        return mb_convert_encoding($str, 'UTF-8', $encode);
+	        return mb_convert_encoding($str, $code, $encode);
 	    }
 	    return $str;
 	}
