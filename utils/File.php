@@ -137,7 +137,7 @@ class File {
 	* @throws \Exception 
 	* @return string
 	 */
-	public function upload($file, $path, $base_name = true){
+	public function upload($file, $path, $base_name = true, $detail = false){
 		if(empty($file)) throw new \Exception('文件不存在');
 		
 		$save_path = './uploads/'.trim($path, '/').'/';
@@ -148,7 +148,17 @@ class File {
 		$fileName = empty($base_name) ? date('Ymd').'-'.uniqid().'.'.$file->extension : $file->baseName.'.'.$file->extension;
 		$success = $file->saveAs($save_path.$fileName);
 		if($success){
-			return ltrim($save_path, '.').$fileName;
+		    if($detail === true){
+		        return [
+		            'path' => ltrim($save_path, '.').$fileName,
+		            'name' => $file->baseName,
+		            'extension' => $file->extension,
+		            'size' => $file->size,
+		            'type' => $file->type,
+		        ];
+		    }else{
+		        return ltrim($save_path, '.').$fileName;
+		    }
 		}
 		throw new \Exception('文件上传失败');
 	}
