@@ -92,6 +92,22 @@ class Helper{
     }
 
     /**
+     * @use: 字符串替换
+     * @date: 2018/12/20 12:35 PM
+     * @author: sunnnnn [http://www.sunnnnn.com] [mrsunnnnn@qq.com]
+     * @return mixed|string|需要替换的字符串 : string
+     * @param $str     需要替换的字符串
+     * @param $search  替换的原字符串
+     * @param $replace 替换的字符串
+     * @param string $default 字符串为空的默认返回
+     */
+    public function replace($str, $search, $replace, $default = ''){
+        if(empty($str)) return $default;
+
+        return  strpos($str, $search) !== false ? str_replace($search, $replace, $str) : $str;
+    }
+
+    /**
      * 判断是否移动设备
      * @date: 2017年6月9日 上午9:24:47
      * @author: sunnnnn [www.sunnnnn.com] [mrsunnnnn@qq.com]
